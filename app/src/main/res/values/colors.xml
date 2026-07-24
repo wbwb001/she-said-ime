@@ -23,4 +23,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
     <color name="toolbarForegroundColor">#FFFFFF</color>  <!-- 工具栏前景色 -->
 
+    <!-- 她说 · 暖色主题（仅用于引导页与图标，不影响主设置界面） -->
+    <color name="she_cream">#FFF4EC</color>      <!-- 引导页奶油底 -->
+    <color name="she_peach">#FFE0D2</color>      <!-- 蜜桃浅色（步骤胶囊） -->
+    <color name="she_coral">#FF7E5F</color>      <!-- 珊瑚橘（主高亮/按钮） -->
+    <color name="she_coral_dark">#E8664A</color> <!-- 珊瑚橘深（状态栏） -->
+    <color name="she_brown">#5B4636</color>      <!-- 暖棕（标题文字） -->
+    <color name="she_text_warm">#8A7B6E</color>  <!-- 暖灰（正文/提示） -->
+
 </resources>

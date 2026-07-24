@@ -68,17 +68,17 @@
     <string name="external_storage_permission_granted">External storage permission is granted</string>
     <string name="external_storage_permission_denied">External storage permission was denied, deployment or reading schemas and config may not be available</string>
     <string name="custom_sound_effect_name">Custom key Sound Effect</string>
-    <string name="setup__next">Next</string>
-    <string name="done">Done</string>
+    <string name="setup__next">下一步</string>
+    <string name="done">完成</string>
     <string name="setup__enable_ime_hint">Enable <b>她说</b> in Language and input settings</string>
     <string name="setup__select_ime_hint">Select <b>她说</b> as your default input method</string>
-    <string name="setup__enable_ime">Enable Input Method</string>
-    <string name="setup__select_ime">Select Input Method</string>
-    <string name="setup__prev">Prev</string>
+    <string name="setup__enable_ime">点亮她说</string>
+    <string name="setup__select_ime">选为默认</string>
+    <string name="setup__prev">上一步</string>
     <string name="setup__notify_hint">Finish setting up the keyboard</string>
-    <string name="setup__step_one">Step 1</string>
-    <string name="setup__step_two">Step 2</string>
-    <string name="setup__skip">Skip</string>
+    <string name="setup__step_one">第一步 · 授权</string>
+    <string name="setup__step_two">第二步 · 点亮</string>
+    <string name="setup__skip">跳过</string>
     <string name="setup__skip_hint">"Do you want to skip the setup wizard? "</string>
     <string name="setup__skip_hint_yes">OK, thanks</string>
     <string name="setup__skip_hint_no">No, please leave me here</string>
@@ -134,9 +134,9 @@
     <string name="custom_sound_effect_enabled">Use custom key sound</string>
     <string name="enable_landscape_mode">Enable Landscape Mode</string>
     <string name="split_space_percent">Auto Split Keyboard Space Ratio</string>
-    <string name="setup__step_three">Setup 3</string>
+    <string name="setup__step_three">第三步 · 设为默认</string>
     <string name="setup__request_permission_hint">Currently 她说 requests storage permissions to access its configuration\nand allow users to modify easily.</string>
-    <string name="setup__request_permission">Request storage permission</string>
+    <string name="setup__request_permission">给她说一点空间</string>
     <string name="grant_permission">Grant permission</string>
     <string name="notification_permission_title">No Notification Permission</string>
     <string name="notification_permission_message">Without the permission to post notifications, we are not able to notify you when some time-consuming operations are done.</string>
@@ -220,4 +220,9 @@
     <string name="share">Share</string>
     <string name="word_segment">Word segment</string>
     <string name="star_success">Star success</string>
+
+    <!-- 引导页 · 觉醒金句（每步一句） -->
+    <string name="setup__quote_one">给她说一点空间，也给你自己。</string>
+    <string name="setup__quote_two">点亮她，是开口的第一步。</string>
+    <string name="setup__quote_three">让她说，成为你默认的声音。</string>
 </resources>

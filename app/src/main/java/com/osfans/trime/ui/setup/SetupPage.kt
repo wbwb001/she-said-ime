@@ -41,6 +41,14 @@ enum class SetupPage {
         },
     )
 
+    fun getQuoteText(context: Context) = context.getText(
+        when (this) {
+            Permissions -> R.string.setup__quote_one
+            Enable -> R.string.setup__quote_two
+            Select -> R.string.setup__quote_three
+        },
+    )
+
     fun getButtonAction(context: Context) {
         when (this) {
             Permissions -> context.requestExternalStoragePermission()

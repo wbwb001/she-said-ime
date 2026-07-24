@@ -131,38 +131,38 @@ preset_color_schemes:
   default:
     name: 她说／SheSaid
     author: 她说团队
-    # 现代简洁风格 — 柔和白底 + 玫瑰粉高亮
-    back_color: 0xF7F8FA #候选区背景（浅灰白）
-    border_color: 0xE8EAED #边框
-    candidate_separator_color: 0xE8EAED #候选分割线
-    candidate_text_color: 0x2D3436 #候选文字（深灰黑）
-    comment_text_color: 0x9CA3AF #提示文字（中灰）
-    hilited_back_color: 0xFFF0F3 #编码区背景（极淡粉）
-    hilited_candidate_back_color: 0xE91E63 #选中候选背景（玫瑰粉）
+    # 暖蜜桃风格 — 奶油蜜桃底 + 珊瑚橘高亮（仿搜狗暖色键盘）
+    back_color: 0xFFF6F0 #候选区背景（暖奶油）
+    border_color: 0xF3E2D8 #边框（暖米）
+    candidate_separator_color: 0xF3E2D8 #候选分割线
+    candidate_text_color: 0x4A3B35 #候选文字（暖深棕）
+    comment_text_color: 0xB89A8C #提示文字（暖灰）
+    hilited_back_color: 0xFFEDE6 #编码区背景（极淡蜜桃）
+    hilited_candidate_back_color: 0xFF7E5F #选中候选背景（珊瑚橘）
     hilited_candidate_text_color: 0xFFFFFF #选中候选文字（白色）
-    hilited_comment_text_color: 0xF48FB1 #选中提示（淡粉）
-    hilited_key_back_color: 0xE91E63 #按下按键背景（玫瑰粉）
+    hilited_comment_text_color: 0xFFB39C #选中提示（淡珊瑚）
+    hilited_key_back_color: 0xFF7E5F #按下按键背景（珊瑚橘）
     hilited_key_symbol_color: 0xFFFFFF #按下按键符号
     hilited_key_text_color: 0xFFFFFF #按下按键文字
-    hilited_off_key_back_color: 0xE8EAED #关闭态按键背景
-    hilited_off_key_text_color: 0x6B7280 #关闭态按键文字
-    hilited_on_key_back_color: 0xE91E63 #开启态按键背景
+    hilited_off_key_back_color: 0xF3E2D8 #关闭态按键背景
+    hilited_off_key_text_color: 0x8A6F63 #关闭态按键文字
+    hilited_on_key_back_color: 0xFF7E5F #开启态按键背景
     hilited_on_key_text_color: 0xFFFFFF #开启态按键文字
-    hilited_text_color: 0xE91E63 #输入中的拼音编码（玫瑰粉）
-    key_back_color: 0xFFFFFF #普通按键背景（纯白）
-    key_symbol_color: 0x9CA3AF #按键符号（中灰）
-    key_text_color: 0x1F2937 #按键文字（深色）
-    keyboard_back_color: 0xF2F3F5 #键盘整体背景（浅灰）
-    label_color: 0x6B7280 #标签文字（中灰）
-    off_key_back_color: 0xF0F1F3 #关闭功能键背景
-    off_key_text_color: 0x6B7280 #关闭功能键文字
-    on_key_back_color: 0xE91E63 #开启功能键背景
+    hilited_text_color: 0xFF6B4A #输入中的拼音编码（珊瑚橘）
+    key_back_color: 0xFFFDFB #普通按键背景（暖白）
+    key_symbol_color: 0xB89A8C #按键符号（暖灰）
+    key_text_color: 0x3A2E2A #按键文字（暖近黑）
+    keyboard_back_color: 0xFFF1E9 #键盘整体背景（蜜桃）
+    label_color: 0x8A6F63 #标签文字（暖灰）
+    off_key_back_color: 0xFFE9DF #关闭功能键背景（浅蜜桃）
+    off_key_text_color: 0x8A6F63 #关闭功能键文字
+    on_key_back_color: 0xFF7E5F #开启功能键背景
     on_key_text_color: 0xFFFFFF #开启功能键文字
-    preview_back_color: 0xEEEFF1 #按键预览背景
-    preview_text_color: 0xE91E63 #按键预览文字
-    shadow_color: 0x00000020 #阴影（半透明黑）
-    text_color: 0x374151 #编码区文字（深灰）
-    text_back_color: 0xF7F8FA #编码区背景
+    preview_back_color: 0xFFE9DF #按键预览背景
+    preview_text_color: 0xFF6B4A #按键预览文字
+    shadow_color: 0x00000018 #阴影（更柔）
+    text_color: 0x4A3B35 #编码区文字（暖深棕）
+    text_back_color: 0xFFF6F0 #编码区背景
 
   aqua:
     name: 碧水／Aqua
@@ -910,6 +910,10 @@ preset_keys:
   Punct_switch: {toggle: ascii_punct, send: Mode_switch, states: [ 。，, ．， ]}
   #切换键盘
   Keyboard_symbols: {label: 符號, send: Eisu_toggle, select: symbols}
+  Symbols: {label: 符, send: Eisu_toggle, select: symbols}
+  Voice: {label: 语音, send: VOICE_ASSIST}
+  KeyboardSwitch: {label: 键盘, send: Eisu_toggle, select: .next}
+  EnSwitch: {label: 中/英, toggle: ascii_mode, send: Mode_switch, states: [中, 英]}
   Keyboard_number: {label: 數字, send: Eisu_toggle, select: number}
   Keyboard_mini: {label: 迷你, send: Eisu_toggle, select: mini}
   Keyboard_letter: {label: 字母, send: Eisu_toggle, select: default}
@@ -1012,8 +1016,10 @@ preset_keyboards:
       - {click: '.', long_click: '>'}
       - {click: '/', long_click: '?'}
       - {click: Shift_L}
-      - {click: Keyboard_symbols, long_click: Keyboard_number}
-      - {click: Mode_switch, long_click: Menu}
+      - {click: Voice, long_click: Menu, width: 15}
+      - {click: Symbols, long_click: Keyboard_number, width: 15}
+      - {click: KeyboardSwitch, long_click: Menu, width: 15}
+      - {click: EnSwitch, long_click: Menu, width: 15}
       - {click: space, width: 30}
       - {click: "'", long_click: '"'}
       - {click: BackSpace, width: 15}
@@ -1199,8 +1205,10 @@ preset_keyboards:
     - {click: 'n', long_click: '"'}
     - {click: 'm', long_click: "'"}
     - {click: BackSpace, swipe_left: Escape, width: 15}
-    - {click: Mode_switch, long_click: Menu, width: 15}
-    - {click: Keyboard_symbols, long_click: Keyboard_number}
+    - {click: Voice, long_click: Menu, width: 15}
+    - {click: Symbols, long_click: Keyboard_number, width: 15}
+    - {click: KeyboardSwitch, long_click: Menu, width: 15}
+    - {click: EnSwitch, long_click: Menu, width: 15}
     - {click: ',', long_click: '<'}
     - {click: space, width: 30}
     - {click: '.', long_click: '>'}

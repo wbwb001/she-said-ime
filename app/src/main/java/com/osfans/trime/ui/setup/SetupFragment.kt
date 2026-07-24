@@ -27,11 +27,12 @@ class SetupFragment : Fragment() {
             }
             with(binding) {
                 stepText.text = page.getStepText(requireContext())
+                quoteText.text = page.getQuoteText(requireContext())
                 hintText.text = page.getHintText(requireContext())
                 actionButton.visibility = if (new) View.GONE else View.VISIBLE
                 actionButton.text = page.getButtonText(requireContext())
                 actionButton.setOnClickListener { page.getButtonAction(requireContext()) }
-                doneText.visibility = if (new) View.VISIBLE else View.GONE
+                doneLayout.visibility = if (new) View.VISIBLE else View.GONE
             }
             field = new
         }

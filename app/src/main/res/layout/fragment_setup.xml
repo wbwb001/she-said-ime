@@ -11,75 +11,119 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/she_cream"
     tools:context=".ui.setup.SetupFragment">
 
-    <ImageView
-        android:id="@+id/app_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:src="@mipmap/ic_app_icon"
-        app:layout_constraintBottom_toTopOf="@+id/step_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/step_text"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginHorizontal="20dp"
-        android:gravity="center"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@id/hint_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Step text here ..." />
-
-    <TextView
-        android:id="@+id/hint_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:gravity="center"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingHorizontal="32dp"
+        android:paddingVertical="8dp"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Hint text here ..." />
-
-    <Button
-        android:id="@+id/action_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hint_text"
-        tools:text="Action" />
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <ImageView
-        android:id="@+id/done_icon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="8dp"
-        android:src="@drawable/ic_baseline_check_circle_24"
-        android:tint="?android:attr/colorAccent"
-        app:layout_constraintEnd_toStartOf="@id/done_text"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/hint_text" />
+        <ImageView
+            android:id="@+id/app_icon"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            android:layout_marginBottom="16dp"
+            android:src="@mipmap/ic_app_icon" />
 
-    <TextView
-        android:id="@+id/done_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/done"
-        android:textColor="?android:attr/colorAccent"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/done_icon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/done_icon"
-        app:layout_constraintTop_toTopOf="@id/done_icon" />
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name_release"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/she_brown" />
+
+        <TextView
+            android:id="@+id/slogan_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/trime_app_slogan"
+            android:textSize="14sp"
+            android:textColor="@color/she_coral" />
+
+        <TextView
+            android:id="@+id/step_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_peach_pill"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/she_coral"
+            tools:text="第二步 · 点亮" />
+
+        <TextView
+            android:id="@+id/quote_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="18dp"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:textColor="@color/she_text_warm"
+            tools:text="点亮她，是开口的第一步。" />
+
+        <TextView
+            android:id="@+id/hint_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:lineSpacingExtra="4dp"
+            android:textSize="15sp"
+            android:textColor="@color/she_text_warm"
+            tools:text="Hint text here ..." />
+
+        <Button
+            android:id="@+id/action_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:minWidth="180dp"
+            android:minHeight="48dp"
+            android:background="@drawable/bg_coral_pill"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            tools:text="点亮她说" />
+
+        <LinearLayout
+            android:id="@+id/done_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="28dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/done_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/ic_baseline_check_circle_24"
+                android:tint="@color/she_coral" />
+
+            <TextView
+                android:id="@+id/done_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/done"
+                android:textColor="@color/she_coral"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
