@@ -1,0 +1,91 @@
+# 她说输入法 · 提权词库
+# 格式: 词\t拼音\t权重(越高越靠前)
+# 目标: 女性主义相关词打拼音直接出首位
+
+# 一、女性主义核心术语（权重最高）
+女权	nvquan	100
+厌女	yannv	100
+她	ta	99
+月经	yuejing	99
+女性	nvxing	99
+女性主义	nvxingzhuyi	99
+父权	fuquan	99
+平权	pingquan	99
+女权主义	nvquanzhuyi	99
+性别平等	xingbiepingdeng	99
+性别歧视	xingbieqishi	99
+物化	wuhua	99
+母职	muzhi	99
+婚女	hunnv	98
+顺性别	shunxingbie	98
+跨性别	kuaxingbie	98
+非二元	feieryuan	98
+去性别化	quxingbiehua	98
+女性凝视	nvxingningshi	98
+独立女性	dulinvxing	98
+职场女性	zhichangnvxing	98
+全职妈妈	quanzhimama	98
+单亲妈妈	danqinmama	98
+女科学家	nvkexuejia	98
+女企业家	nvqiyejia	98
+女工程师	nvgongchengshi	98
+女主播	nvzhubo	98
+女权运动	nvquanyundong	98
+妇女节	funvjie	98
+
+# 二、小红书女本位新造词（权重高）
+好蒂	haodi	100
+母道话	mudaohua	100
+蒂蒂的	didide	100
+男疾男戸	nanjinanhu	99
+公公爹爹	gonggongdiedie	99
+强女人	qingnvren	98
+辣弟	ladi	98
+母父	mufu	98
+他爹的	tadie	98
+骚它爹	shantadie	98
+骚你爹	shannidie	98
+白闝	baipiao	96
+好闺基	haoguiji	95
+日叔	rishu	95
+日子（坐日子）	rizi	95
+日锅	riguo	95
+爹爹不休	diediepoxia	95
+根根叨叨	gengendaodao	95
+水性杨草	shuixingyangcao	95
+维多利强	weiduoliqiang	95
+喉结罩	housizhao	95
+
+# 三、正面重构词（高权重）
+三八	sanba	98
+妇女	funv	98
+大妈	dama	98
+小姐	xiaojie	98
+大姐	dajie	98
+阿姨	ayi	98
+媛	yuan	98
+娘	niang	98
+母	mu	98
+女巫	nvwu	98
+妖精	yaojing	98
+
+# 四、日常正面女性词（权重中高）
+她力量	taliliang	95
+她经济	tajingji	95
+她视角	tashijiao	95
+她时代	tashidai	95
+她故事	tagushi	95
+她世界	tashijie	95
+她定义	tadingyi	95
+她价值	tajiazhi	95
+她声音	tashengyin	95
+她觉醒	tajuexing	95
+她写作	taxiezuo	95
+她创造	tachuangzao	95
+她职场	tazhichang	95
+她职场她定义	tazhichangtadingyi	95
+女子力	nvzili	90
+姐姐力	jiejieli	90
+姐姐	jiejie	90
+闺蜜	guimi	90
+女人味	nvrenwei	85
