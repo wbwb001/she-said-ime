@@ -34,6 +34,9 @@ import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updateLayoutParams
+import com.osfans.trime.ime.feminist.FeministBubbleView
+import com.osfans.trime.ime.feminist.FeministCloudSync
+import com.osfans.trime.ime.feminist.FeministWordChecker
 import androidx.lifecycle.lifecycleScope
 import com.osfans.trime.core.KeyModifiers
 import com.osfans.trime.core.KeyValue
@@ -590,6 +593,33 @@ open class TrimeInputMethodService : LifecycleInputMethodService() {
         lastCommittedText = text
         composingText = ""
         InputFeedbackManager.textCommitSpeak(text)
+
+        // 她说·女性主义输入法：上屏词检测 + 云端词频记录
+        checkFeministWord(text)
+        FeministCloudSync.recordWord(text, "")  // 记录用户输入，云端同步用
+    }
+
+    /**
+     * 检测上屏词是否命中女性主义词库，弹浮动气泡提示
+     */
+    private var feministBubble: FeministBubbleView? = null
+
+    private fun checkFeministWord(text: String) {
+        val result = FeministWordChecker.check(text)
+        if (result.type == "none") return
+
+        if (feministBubble == null) {
+            feministBubble = FeministBubbleView(this)
+        }
+        // 用键盘布局的根 View 作为容器
+        val container = window?.window?.decorView?.findViewById<ViewGroup>(android.R.id.content)
+            ?: return
+        feministBubble?.show(
+            container = container,
+            type = result.type,
+            message = result.message,
+            durationMs = FeministWordChecker.bubbleDurationMs
+        )
     }
 
     /**

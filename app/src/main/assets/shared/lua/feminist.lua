@@ -1,16 +1,45 @@
 -- feminist.lua
--- 她说输入法 · 女性主义候选过滤插件 v4
--- 功能：
---   1. 辱女词检测 -> 候选标🔴/🟠/🟢 + 平替直接插入候选栏
---   2. 教育模式   -> 检测到历史污名化字时加📖提示
---   3. 新词推荐   -> 打旧词时推荐女本位造词
---   4. 双标对照   -> 同一行为男女不同词的提示
---   5. 夸奖陷阱   -> 表面夸实则束缚的词
---   6. 控制性语言 -> 关系中的隐形束缚表达
+-- 她说输入法 · 女性主义候选过滤插件 v5
+--
+-- ⚙️ 模式设置（运行时读 feminist.config 文件，可热更新）：
+--   "minimal"  = 温和模式：只标严重辱女词(🔴)，其他不显示
+--   "standard" = 标准模式：辱女词分级(🔴🟠🟢)+平替+教育提示(📖) ← 默认
+--   "full"     = 全面模式：标准模式 + 新词推荐✨ + 双标对照⚖ + 夸奖陷阱⭐ + 控制语言💬
+--
+-- 设置方法：
+--   1. 在 Rime 用户目录(用户文件夹)的 feminist.config 文件写一行 "full" 即可
+--   2. 重新部署 Rime 后生效
+--   3. 后续 App 设置页会写这个文件
+
+local function read_mode_from_config()
+  -- 默认值
+  local mode = "standard"
+
+  -- 尝试读 Rime 配置目录的 feminist.config
+  local config_path = rime_api.get_user_data_dir() .. "/feminist.config"
+  local f = io.open(config_path, "r")
+  if f then
+    local content = f:read("*l")  -- 读第一行
+    f:close()
+    if content then
+      content = content:match("^%s*(.-)%s*$")  -- trim
+      if content == "minimal" or content == "standard" or content == "full" then
+        mode = content
+      end
+    end
+  end
+
+  return mode
+end
+
+local MODE = read_mode_from_config()
+
+print("feminist.lua: MODE = " .. MODE)
+
+-- ============================================================
 
 local data = require("feminist_data")
 
--- 按 "/" 拆分平替词
 local function split_alt(alt_str)
   local result = {}
   if not alt_str or alt_str == "" then return result end
@@ -27,101 +56,118 @@ local function filter(input, env)
   for cand in input:iter() do
     local txt = cand.text
     local yielded = false
-
-    -- ========== 优先级1: 教育模式（历史污名化字） ==========
-    local edu = data.educate[txt]
-    if edu then
-      -- 截取前20字做注释（手机上太长了会被截断）
-      local short = edu:sub(1, 22)
-      cand:get_genuine().comment = "📖" .. short
-      yield(cand)
-      yielded = true
-    end
-
-    -- ========== 优先级2: 新词推荐 ==========
-    local nw = data.new_word[txt]
-    if nw then
-      if not yielded then
-        yield(cand)
-        yielded = true
-      end
-      local c = Candidate("feminist", cand.start, cand._end, nw.recommend, "✨ 试试这个词")
-      yield(c)
-    end
-
-    -- ========== 优先级3: 警告词（标级别+平替） ==========
     local w = data.warn[txt]
-    if w and not yielded then
-      local mark = "⚠"
-      if w.level == "severe" then mark = "🔴"
-      elseif w.level == "mild" then mark = "🟠"
-      elseif w.level == "implicit" then mark = "🟢" end
 
-      cand:get_genuine().comment = mark
-      yield(cand)
-      yielded = true
-
-      if w.alt and w.alt ~= "" then
-        local alts = split_alt(w.alt)
-        for _, alt_word in ipairs(alts) do
-          if alt_word and alt_word ~= "" and alt_word ~= "（直接禁用）" and alt_word ~= "（禁用）" then
-            local c = Candidate("feminist", cand.start, cand._end, alt_word, "← 平替")
-            yield(c)
-          end
-        end
-      end
-    end
-
-    -- ========== 优先级4: 双标对照 ==========
-    local ds = data.double_standard[txt]
-    if ds and not yielded then
-      cand:get_genuine().comment = "⚖"
-      yield(cand)
-      yielded = true
-    end
-
-    -- ========== 优先级5: 夸奖陷阱 ==========
-    local pt = data.praise_trap[txt]
-    if pt and not yielded then
-      cand:get_genuine().comment = "⭐"
-      yield(cand)
-      yielded = true
-    end
-
-    -- ========== 优先级6: 控制性语言 ==========
-    local cl = data.control_lang[txt]
-    if cl and not yielded then
-      cand:get_genuine().comment = "💬"
-      yield(cand)
-      yielded = true
-    end
-
-    -- ========== 都没命中: 正常候选 ==========
-    if not yielded then
-      -- 可替换词
-      local rep = data.replace[txt]
-      if rep and rep ~= "" then
-        cand:get_genuine().comment = "→ " .. rep
+    -- ============ 模式判断 ============
+    if MODE == "minimal" then
+      -- 温和模式：只标 severe 词
+      if w and w.level == "severe" then
+        cand:get_genuine().comment = "🔴"
         yield(cand)
         yielded = true
-        local alts = split_alt(rep)
-        for _, alt_word in ipairs(alts) do
-          if alt_word and alt_word ~= "" then
-            local c = Candidate("feminist", cand.start, cand._end, alt_word, "← 替代方案")
-            yield(c)
+      end
+      if not yielded then yield(cand) end
+      goto continue
+
+    elseif MODE == "full" then
+      -- ====== 全面模式：全部功能开启 ======
+
+      -- ① 教育模式
+      local edu = data.educate[txt]
+      if edu then
+        local short = edu:sub(1, 22)
+        cand:get_genuine().comment = "📖" .. short
+        yield(cand)
+        yielded = true
+      end
+
+      -- ② 新词推荐
+      local nw = data.new_word[txt]
+      if nw then
+        if not yielded then yield(cand); yielded = true end
+        local c = Candidate("feminist", cand.start, cand._end, nw.recommend, "✨ 试试这个词")
+        yield(c)
+      end
+
+      -- ③ 警告词
+      if w and not yielded then
+        local mark = "⚠"
+        if w.level == "severe" then mark = "🔴"
+        elseif w.level == "mild" then mark = "🟠"
+        elseif w.level == "implicit" then mark = "🟢" end
+        cand:get_genuine().comment = mark
+        yield(cand); yielded = true
+        if w.alt and w.alt ~= "" then
+          for _, a in ipairs(split_alt(w.alt)) do
+            if a ~= "（直接禁用）" and a ~= "（禁用）" and a ~= "" then
+              yield(Candidate("feminist", cand.start, cand._end, a, "← 平替"))
+            end
           end
         end
-      -- 保留词
-      else
-        local rc = data.reclaim[txt]
-        if rc then
-          cand:get_genuine().comment = "💪"
-          yield(cand)
-        else
-          yield(cand)
+      end
+
+      -- ④ 双标对照
+      if not yielded then
+        local ds = data.double_standard[txt]
+        if ds then
+          cand:get_genuine().comment = "⚖"
+          yield(cand); yielded = true
         end
       end
+
+      -- ⑤ 夸奖陷阱
+      if not yielded then
+        local pt = data.praise_trap[txt]
+        if pt then
+          cand:get_genuine().comment = "⭐"
+          yield(cand); yielded = true
+        end
+      end
+
+      -- ⑥ 控制性语言
+      if not yielded then
+        local cl = data.control_lang[txt]
+        if cl then
+          cand:get_genuine().comment = "💬"
+          yield(cand); yielded = true
+        end
+      end
+
+      -- ⑦ 都没命中
+      if not yielded then yield(cand) end
+
+    else
+      -- ====== 标准模式（默认）：警告词+教育提示 ======
+
+      -- 教育提示优先（📖）
+      local edu = data.educate[txt]
+      if edu then
+        local short = edu:sub(1, 22)
+        cand:get_genuine().comment = "📖" .. short
+        yield(cand); yielded = true
+      end
+
+      -- 警告词（🔴🟠🟢 + 平替）
+      if w and not yielded then
+        local mark = "⚠"
+        if w.level == "severe" then mark = "🔴"
+        elseif w.level == "mild" then mark = "🟠"
+        elseif w.level == "implicit" then mark = "🟢" end
+        cand:get_genuine().comment = mark
+        yield(cand); yielded = true
+        if w.alt and w.alt ~= "" then
+          for _, a in ipairs(split_alt(w.alt)) do
+            if a ~= "（直接禁用）" and a ~= "（禁用）" and a ~= "" then
+              yield(Candidate("feminist", cand.start, cand._end, a, "← 平替"))
+            end
+          end
+        end
+      end
+
+      if not yielded then yield(cand) end
     end
+
+    ::continue::
   end
 end
 

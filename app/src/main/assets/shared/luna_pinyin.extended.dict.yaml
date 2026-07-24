@@ -12,6 +12,11 @@ sort: by_weight
 use_preset_vocabulary: true
 import_tables:
   - luna_pinyin                    # 系统主词库
+  - cn_dicts/8105                  # 雾凇拼音·8105字表
+  - cn_dicts/base                  # 雾凇拼音·基础词库(16MB,现代汉语词频)
+  - cn_dicts/ext                   # 雾凇拼音·扩展词库(11MB,更多词汇)
+  - cn_dicts/others                # 雾凇拼音·杂项
+  - cn_dicts/tencent               # 腾讯词向量·超大词库(17MB,词频最贴近日常)
   - luna_pinyin.sogou.popular      # 搜狗·流行新词
   - luna_pinyin.sogou.social       # 搜狗·网络用语(最大,约3万条)
   - luna_pinyin.sogou.chengyu      # 搜狗·成语俗语

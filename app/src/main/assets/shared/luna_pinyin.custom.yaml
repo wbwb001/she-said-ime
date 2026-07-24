@@ -6,9 +6,10 @@ patch:
   # === 用合并后的扩展词库(系统词库 + 女本位词) ===
   "translator/dictionary": luna_pinyin.extended
 
-  # === 你要的基础功能，全部打开 ===
-  "translator/enable_completion": true      # 词语联想/补全：打 zhongguo 会联想出 中国/中国人民/中国银行
-  "translator/enable_correction": true      # 拼写纠错：打错拼音也能凑出词
+  # === 主词库权重提升(让日常词更容易出现) ===
+  "translator/initial_quality": 1.2
+
+  # === 开启用户词库学习(你越打越准) ===
   "translator/enable_user_dict": true       # 用户词记忆：你常打的词会越来越靠前
   "translator/enable_sentence": true        # 整句输入：一长串拼音直接出整句
   "translator/spelling_hints": 8            # 候选显示拼音提示
