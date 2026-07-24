@@ -1,0 +1,172 @@
+# Rime dictionary - 女性主义提权词库
+# encoding: utf-8
+---
+name: feminist
+version: "2026.07.24"
+sort: by_weight
+...
+女权	nv quan	100
+厌女	yan nv	100
+平权	ping quan	100
+父权	fu quan	100
+她	ta	100
+妳	ni	100
+月经	yue jing	100
+物化	wu hua	100
+荡妇羞辱	dang fu xiu ru	100
+受害者有罪论	shou hai zhe you zui lun	100
+容貌焦虑	rong mao jiao lv	100
+身材焦虑	shen cai jiao lv	100
+粉红税	fen hong shui	100
+她经济	ta jing ji	100
+她力量	ta li liang	100
+月经贫困	yue jing pin kun	100
+月经羞耻	yue jing xiu chi	100
+玻璃天花板	bo li tian hua ban	100
+性别歧视	xing bie qi shi	100
+性骚扰	xing sao rao	100
+母职	mu zhi	100
+母职惩罚	mu zhi cheng fa	100
+女书	nv shu	100
+脱美役	tuo mei yi	100
+不服美役	bu fu mei yi	100
+美役出逃	mei yi chu tao	100
+外貌内卷	wai mao nei juan	100
+颜值焦虑	yan zhi jiao lv	100
+审美绑架	shen mei bang jia	100
+审美规训	shen mei gui xun	100
+美丽税	mei li shui	100
+素颜自由	su yan zi you	100
+脱束身衣	tuo shu shen yi	100
+身体自由	shen ti zi you	100
+审美多元化	shen mei duo yuan hua	100
+拒绝容貌焦虑	ju jue rong mao jiao lv	100
+素颜自信	su yan zi xin	100
+不化妆自由	bu hua zhuang zi you	100
+自然美	zi ran mei	100
+审美自由	shen mei zi you	100
+女企业家	nv qi ye jia	100
+女科学家	nv ke xue jia	100
+女医生	nv yi sheng	100
+女教授	nv jiao shou	100
+女工程师	nv gong cheng shi	100
+独立女性	du li nv xing	100
+全职妈妈	quan zhi ma ma	100
+职场女性	zhi chang nv xing	100
+单身女性	dan shen nv xing	100
+自主女性	zi zhu nv xing	100
+希帕蒂娅	xi pa di ya	100
+诺特	nuo te	100
+科瓦廖夫斯卡娅	ke wa liao fu si ka ya	100
+米尔扎哈尼	mi er zha ha ni	100
+王承书	wang cheng shu	100
+张弥曼	zhang mi man	100
+颜宁	yan ning	100
+林巧稚	lin qiao zhi	100
+主体性	zhu ti xing	100
+话语权	hua yu quan	100
+男性凝视	nan xing ning shi	100
+交叉性	jiao cha xing	100
+交叉女权	jiao cha nv quan	100
+客体化	ke ti hua	100
+赋权	fu quan	100
+姐妹情谊	jie mei qing yi	100
+意识觉醒	yi shi jue xing	100
+性别政治	xing bie zheng zhi	100
+社教化	she jiao hua	100
+结构性压迫	jie gou xing ya po	100
+隐性偏见	yin xing pian jian	100
+性别社会化	xing bie she hui hua	100
+性别角色	xing bie jue se	100
+性解放	xing jie fang	100
+身体自主	shen ti zi zhu	100
+生育自由	sheng yu zi you	100
+同工同酬	tong gong tong chou	100
+平等就业	ping deng jiu ye	100
+反性别歧视	fan xing bie qi shi	100
+性别公正	xing bie gong zheng	100
+经期	jing qi	100
+痛经	tong jing	100
+排卵	pai luan	100
+经前综合征	jing qian zong he zheng	100
+生理期	sheng li qi	100
+卫生巾	wei sheng jin	100
+卫生棉条	wei sheng mian tiao	100
+月经杯	yue jing bei	100
+棉条	mian tiao	100
+阴道	yin dao	100
+阴部	yin bu	100
+阴唇	yin chun	100
+子宫	zi gong	100
+卵巢	luan chao	100
+卵子	luan zi	100
+阴毛	yin mao	100
+腋毛	ye mao	100
+处女膜	chu nv mo	100
+更年期	geng nian qi	100
+绝经	jue jing	100
+白带	bai dai	100
+恶露	e lu	100
+盆底肌	pen di ji	100
+妊娠纹	ren shen wen	100
+产后抑郁	chan hou yi yu	100
+漏尿	lou niao	100
+侧切	ce qie	100
+哺乳	bu ru	100
+乳头	ru tou	100
+性教育	xing jiao yu	100
+性同意	xing tong yi	100
+性健康	xing jian kang	100
+避孕	bi yun	100
+宫颈癌筛查	gong jing ai shai cha	100
+乳房自检	ru fang zi jian	100
+姐感	jie gan	100
+中女	zhong nv	100
+熟龄	shu ling	100
+新中女	xin zhong nv	100
+自我关照	zi wo guan zhao	100
+出走的决心	chu zou de jue xin	100
+妈妈能量俱乐部	ma ma neng liang ju le bu	100
+妈妈的留白	ma ma de liu bai	100
+随母姓	sui mu xing	100
+妊娠纹展览	ren shen wen zhan lan	100
+女性互助	nv xing hu zhu	100
+女性觉醒	nv xing jue xing	100
+独立买房	du li mai fang	100
+化妆取悦自己	hua zhuang qu yue zi ji	100
+婚前买房	hun qian mai fang	100
+女性成长	nv xing cheng zhang	100
+粉色羞耻	fen se xiu chi	100
+恭喜发财女孩版	gong xi fa cai nv hai ban	100
+少女野心	shao nv ye xin	100
+她叙事	ta xu shi	100
+大女主	da nv zhu	100
+中女时代	zhong nv shi dai	100
+好蒂	hao di	100
+蒂蒂的	di di de	100
+男疾男戸	nan ji nan hu	100
+母道话	mu dao hua	100
+公公爹爹	gong gong die die	100
+他爹的	ta die de	100
+騸你爹	shan ni die	100
+我騸	wo shan	100
+騸	shan	100
+劁	qiao	100
+大少爷脾气	da shao ye pi qi	100
+赘婿熬成爷	zhui xu ao cheng ye	100
+帅女人	shuai nv ren	100
+辣弟	la di	100
+日叔	ri shu	100
+强女人	qiang nv ren	100
+母父	mu fu	100
+媎妹	jie mei	100
+激女	ji nv	100
+爱女	ai nv	100
+服美役	fu mei yi	100
+好闺基	hao gui ji	100
+爸了个根的	ba le ge gen de	100
+根根叨叨	gen gen dao dao	100
+爹爹不休	die die bu xiu	100
+喉结罩	hou jie zhao	100
+维多利强	wei duo li qiang	100
+水性杨草	shui xing yang cao	100

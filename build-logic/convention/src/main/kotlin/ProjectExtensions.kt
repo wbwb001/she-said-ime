@@ -14,12 +14,17 @@ fun Project.runCmd(
     cmd: String,
     default: String = "",
 ): String {
-    val output = providers.exec {
-        commandLine = cmd.split(" ")
-    }
-    return if (output.result.get().exitValue == 0) {
-        output.standardOutput.asText.get().trim()
-    } else {
+    return try {
+        val output = providers.exec {
+            commandLine = cmd.split(" ")
+            isIgnoreExitValue = true
+        }
+        if (output.result.get().exitValue == 0) {
+            output.standardOutput.asText.get().trim()
+        } else {
+            default
+        }
+    } catch (e: Exception) {
         default
     }
 }

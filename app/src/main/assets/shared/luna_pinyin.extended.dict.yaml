@@ -1,0 +1,22 @@
+# Rime dictionary
+# encoding: utf-8
+#
+# 扩展词库 = 系统自带完整拼音词库(luna_pinyin)
+#          + 搜狗13万词库(流行新词/网络用语/成语/诗词/计算机/手机词汇)
+#          + 女本位提权词库(feminist)
+# 这样既有海量常用词(保证词语联想/基础功能)，又加入女本位词
+---
+name: luna_pinyin.extended
+version: "2026.07.24"
+sort: by_weight
+use_preset_vocabulary: true
+import_tables:
+  - luna_pinyin                    # 系统主词库
+  - luna_pinyin.sogou.popular      # 搜狗·流行新词
+  - luna_pinyin.sogou.social       # 搜狗·网络用语(最大,约3万条)
+  - luna_pinyin.sogou.chengyu      # 搜狗·成语俗语
+  - luna_pinyin.sogou.poetry       # 搜狗·诗词
+  - luna_pinyin.sogou.computer     # 搜狗·计算机词汇
+  - luna_pinyin.sogou.mobile       # 搜狗·手机数码
+  - feminist                       # 女本位提权词(放最后,权重已设高,不会被覆盖)
+...

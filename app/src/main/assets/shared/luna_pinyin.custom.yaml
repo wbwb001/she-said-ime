@@ -1,0 +1,38 @@
+# luna_pinyin.custom.yaml
+# 女性主义输入法 · 核心配置补丁
+# 作用：在系统自带拼音输入法上，打开基础功能 + 挂上女本位词库和检测插件
+# 放到手机 rime 目录后，在 trime 里点“重新部署”即可生效
+patch:
+  # === 用合并后的扩展词库(系统词库 + 女本位词) ===
+  "translator/dictionary": luna_pinyin.extended
+
+  # === 你要的基础功能，全部打开 ===
+  "translator/enable_completion": true      # 词语联想/补全：打 zhongguo 会联想出 中国/中国人民/中国银行
+  "translator/enable_correction": true      # 拼写纠错：打错拼音也能凑出词
+  "translator/enable_user_dict": true       # 用户词记忆：你常打的词会越来越靠前
+  "translator/enable_sentence": true        # 整句输入：一长串拼音直接出整句
+  "translator/spelling_hints": 8            # 候选显示拼音提示
+
+  # === 首字母简拼(如 nh->你好, bjs->北京市)：靠模糊/简拼规则 ===
+  # luna_pinyin 默认已支持简拼，这里确保开启缩写匹配
+  "speller/algebra/+":
+    - abbrev/^([a-z]).+$/$1/           # 取每个音节首字母，支持简拼
+    - abbrev/^([a-z]{2}).+$/$1/        # 取前两字母
+
+  # === 默认显示简体字(重要!) ===
+  # 系统词库和搜狗词库内部是繁体存的，必须开这个开关才显示简体
+  switches:
+    - name: ascii_mode
+      reset: 0
+      states: [中文, 西文]
+    - name: full_shape
+      states: [全角, 半角]
+    - name: simplification
+      reset: 1                 # reset: 1 = 默认开启"转简体"
+      states: [漢字, 汉字]
+    - name: ascii_punct
+      states: [。，, ．，]
+
+  # === 挂上女本位检测插件(可选，想要辱女词标注/性别反转就留着) ===
+  "engine/filters/+":
+    - lua_filter@feminist_filter

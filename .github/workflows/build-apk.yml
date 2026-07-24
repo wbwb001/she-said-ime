@@ -1,0 +1,48 @@
+name: Build APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Setup Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: "temurin"
+          java-version: 17
+          cache: 'gradle'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v4
+
+      - name: Install Android NDK
+        run: |
+          sdkmanager --install "cmake;3.31.6"
+
+      - name: Patch librime-lua
+        run: git apply --directory=app/src/main/jni/librime-lua-deps patches/lua.patch || echo "patch skipped"
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Build Debug APK
+        run: ./gradlew :app:assembleDebug --no-daemon
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v5
+        with:
+          name: shesaid-debug
+          path: app/build/outputs/apk/debug/*.apk

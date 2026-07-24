@@ -94,9 +94,12 @@ class OpenCCDataPlugin : Plugin<Project> {
                 val dictionary = resolve("dictionary")
                 for (raw in DICTS_RAW) {
                     val basename = "$raw.txt"
-                    dictionary.resolve(basename).copyTo(output.resolve(basename), overwrite = true)
+                    val srcFile = dictionary.resolve(basename)
+                    if (srcFile.exists()) {
+                        srcFile.copyTo(output.resolve(basename), overwrite = true)
+                    }
                 }
-                val reverse = resolve("scripts/reverse.py").absolutePath
+                val reverse = resolve("scripts/reverse.py")
 
                 fun reverse(
                     source: String,
@@ -104,14 +107,17 @@ class OpenCCDataPlugin : Plugin<Project> {
                 ) {
                     project.providers.exec {
                         workingDir = output
-                        commandLine = listOf("python3", reverse, source, outputFilePath)
+                        commandLine = listOf("python3", reverse.absolutePath, source, outputFilePath)
+                        isIgnoreExitValue = true
                     }.result.get()
                 }
                 for (dict in DICTS_GENERATED) {
                     val inputName = dict.substringBefore("Rev")
                     val inputFile = dictionary.resolve("$inputName.txt")
-                    val outputFile = output.resolve("$dict.txt")
-                    reverse(inputFile.absolutePath, outputFile.name)
+                    if (inputFile.exists()) {
+                        val outputFile = output.resolve("$dict.txt")
+                        reverse(inputFile.absolutePath, outputFile.name)
+                    }
                 }
             }
         }
