@@ -1162,7 +1162,7 @@ preset_keyboards:
     name: 預設26鍵
     author: "osfans <waxaca@163.com>"
     ascii_mode: 0
-    columns: 10 #鍵盤列數，超過則自動換行，默認30列
+    columns: 10
     width: 10
     height: 55
     lock: true
@@ -1186,13 +1186,13 @@ preset_keyboards:
     - {click: 'o', long_click: '(){Left}', swipe_up: 9}
     - {click: 'p', long_click: 'Hide', swipe_up: 0}
     - {width: 5}
-    - {click: 'a', long_click: select_all, swipe_left: Left, swipe_right: Right, swipe_up: Up, swipe_down: Down}
-    - {click: 's', long_click: '~', swipe_left: Home, swipe_right: End, swipe_up: Page_Up, swipe_down: Page_Down}
-    - {click: 'd', long_click: '-', swipe_down: '_'}
-    - {click: 'f', long_click: '+', swipe_down: '='}
-    - {click: 'g', long_click: '\', swipe_down: '|'}
-    - {click: 'h', long_click: '[]{Left}', swipe_left: '[', swipe_right: ']'}
-    - {click: 'j', long_click: '{}{Left}', swipe_left: '{', swipe_right: '}'}
+    - {click: 'a', long_click: select_all, swipe_left: Left, swipe_right: Right}
+    - {click: 's', long_click: '~', swipe_left: Home, swipe_right: End}
+    - {click: 'd', long_click: '-'}
+    - {click: 'f', long_click: '+'}
+    - {click: 'g', long_click: '\'}
+    - {click: 'h', long_click: '[]{Left}'}
+    - {click: 'j', long_click: '{}{Left}'}
     - {click: 'k', long_click: ':'}
     - {click: 'l', long_click: ';'}
     - {width: 5}
@@ -1201,13 +1201,16 @@ preset_keyboards:
     - {click: 'x', long_click: cut}
     - {click: 'c', long_click: copy}
     - {click: 'v', long_click: paste}
-    - {click: 'b', long_click: Time, swipe_up: Date}
+    - {click: 'b', long_click: Time}
     - {click: 'n', long_click: '"'}
     - {click: 'm', long_click: "'"}
-    - {click: BackSpace, swipe_left: Escape, width: 15}
-    - {click: Voice, long_click: Menu, width: 15}
-    - {click: Symbols, long_click: Keyboard_number, width: 15}
-    - {click: KeyboardSwitch, long_click: Menu, width: 15}
+    - {click: BackSpace, width: 15}
+    - {width: 5}
+    - {click: Keyboard_symbols, width: 15}
+    - {click: space, width: 55}
+    - {click: ',', width: 9}
+    - {click: '.', width: 9}
+    - {click: Return, width: 15}
     - {click: EnSwitch, long_click: Menu, width: 15}
     - {click: ',', long_click: '<'}
     - {click: space, width: 30}
