@@ -31,7 +31,9 @@ local function filter(input, env)
     -- ========== 优先级1: 教育模式（历史污名化字） ==========
     local edu = data.educate[txt]
     if edu then
-      cand:get_genuine().comment = "📖 "
+      -- 截取前20字做注释（手机上太长了会被截断）
+      local short = edu:sub(1, 22)
+      cand:get_genuine().comment = "📖" .. short
       yield(cand)
       yielded = true
     end
