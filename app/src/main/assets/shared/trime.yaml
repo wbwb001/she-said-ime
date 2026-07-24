@@ -6,52 +6,52 @@
 # encoding: utf-8
 
 config_version: "3.0"
-name: 預設 #方案名稱
-author: osfans #作者資訊
+name: 她说 #方案名稱
+author: 她说团队 #作者資訊
 
 style:
   auto_caps: false #自動句首大寫:true|false
   candidate_font: han.ttf #候選字型
-  candidate_padding: 5 #候選項內邊距
+  candidate_padding: 8 #候選項內邊距
   candidate_spacing: 0.0 #候选分割线
-  candidate_text_size: 22 #候選字號
+  candidate_text_size: 24 #候選字號
   candidate_text_vertical_bias: 1.0 #候选文本垂直偏移位置（仅 overlay 模式使用，需要间隙空间足够，范围 0.0~1.0，0.0=top，0.5=center，1.0=bottom）
-  candidate_view_height: 28 #候選區高度
+  candidate_view_height: 34 #候選區高度
   #candidate_corner_radius: 4 #候選項圓角半徑
   comment_font: comment.ttf #編碼提示字型
-  comment_height: 12 #编码提示区高度（仅 top 模式约束高度，其余模式与 candidate_view_height 无区别）
+  comment_height: 14 #编码提示区高度（仅 top 模式约束高度，其余模式与 candidate_view_height 无区别）
   comment_position: right #编码提示布局位置：right / top / overlay
   comment_vertical_bias: 0.0 #编码提示垂直偏移位置（仅 overlay 模式使用，需要间隙空间足够，范围 0.0~1.0，0.0=top，0.5=center，1.0=bottom）
-  comment_text_size: 10 #編碼提示字號
+  comment_text_size: 12 #編碼提示字號
   hanb_font: hanb.ttf #擴充字型
-  horizontal_gap: 1 #鍵水平間距
-  keyboard_padding: 0 #竖屏模式下，屏幕左右两侧与键盘的距离（曲面屏减少误触）
-  keyboard_padding_left: 0 #竖屏屏模式下，左手键盘布局，屏幕左侧与键盘的距离
-  keyboard_padding_right: 40 #竖屏屏模式下，左手键盘布局，屏幕右侧与键盘的距离
-  keyboard_padding_bottom: 0 #竖屏模式下，屏幕下边缘与键盘的距离（避免误触发全面屏手势）
-  keyboard_padding_land: 40 #横屏模式下，屏幕左右两侧与键盘的距离（避免横屏按键过度拉伸变形）
+  horizontal_gap: 3 #鍵水平間距
+  keyboard_padding: 6 #竖屏模式下，屏幕左右两侧与键盘的距离（曲面屏减少误触）
+  keyboard_padding_left: 6 #竖屏屏模式下，左手键盘布局，屏幕左侧与键盘的距离
+  keyboard_padding_right: 6 #竖屏屏模式下，左手键盘布局，屏幕右侧与键盘的距离
+  keyboard_padding_bottom: 4 #竖屏模式下，屏幕下边缘与键盘的距离（避免误触发全面屏手势）
+  keyboard_padding_land: 20 #横屏模式下，屏幕左右两侧与键盘的距离（避免横屏按键过度拉伸变形）
   keyboard_padding_land_bottom: 0 #横屏模式下，屏幕下侧与键盘的距离
   key_font: symbol.ttf #鍵盤字型
-  key_height: 44 #鍵高
+  key_height: 50 #鍵高
   key_long_text_size: 14 #長標籤字號
-  key_text_size: 22 #鍵字號
-  key_width: 10.0 #鍵寬，佔螢幕寬的百分比
-  label_text_size: 22 #標籤字號
+  key_text_size: 24 #鍵字號
+  key_width: 9.5 #鍵寬，佔螢幕寬的百分比
+  label_text_size: 18 #標籤字號
   label_font: label.ttf #編標籤字型
   latin_font: latin.ttf #西文字型
-  keyboard_height: 250 #锁定键盘高度，避免切换时键盘高度变化而造成闪烁
-  keyboard_height_land: 200 #锁定横屏下键盘高度，避免切换时键盘高度变化而造成闪烁
+  keyboard_height: 280 #锁定键盘高度，避免切换时键盘高度变化而造成闪烁
+  keyboard_height_land: 220 #锁定横屏下键盘高度，避免切换时键盘高度变化而造成闪烁
   preview_font: latin.ttf #按鍵提示字型
   preview_height: 60 #按鍵提示高度
   preview_offset: -12 #按鍵提示縱向偏移
   preview_text_size: 40 #按鍵提示字號
   reset_ascii_mode_on_focus_change: false #焦点变更弹起输入法软键盘时，重置 ascii_mode
-  round_corner: 8 #按鍵圓角半徑
-  shadow_radius: 0.0 #按鍵陰影半徑
+  round_corner: 14 #按鍵圓角半徑
+  shadow_radius: 2.0 #按鍵陰影半徑
   symbol_font: symbol.ttf #符號字型
-  symbol_text_size: 10 #符號字號
+  symbol_text_size: 11 #符號字號
   text_font: latin.ttf #編碼字型
-  vertical_gap: 1 #鍵盤行距
+  vertical_gap: 4 #鍵盤行距
   #background_folder: #背景图保存在background目录下的哪个子目录
   enter_label_mode: 0  #是否使用App提供的ActionLabel内容作为Enter键的文本（由于多数App没有适配ActionLable，实际影响不大）。0不使用，1只使用actionlabel，2优先使用，3当其他方式没有获得label时才读取actionlabel
   enter_labels:  # 定义Enter键的文本
@@ -129,40 +129,40 @@ fallback_colors:
 
 preset_color_schemes:
   default:
-    name: 預設／default #方案名稱
-    author: osfans #作者資訊
-    back_color: 0xe4e7e9 #候選區背景
-    border_color: 0xc1c7ca #邊框
-    candidate_separator_color: 0xc1c7ca #候選分割背景
-    candidate_text_color: 0x5a676e #候選文字
-    comment_text_color: 0x7b868c #提示
-    hilited_back_color: 0xccd3d7da #標明編碼背景
-    hilited_candidate_back_color: 0xd3d7da #標明候選背景
-    hilited_candidate_text_color: 0x000000 #標明候選文字
-    hilited_comment_text_color: 0x000000 #標明提示
-    hilited_key_back_color: 0xd3d7da #標明按鍵背景
-    hilited_key_symbol_color: 0x000000 #標明按鍵符號
-    hilited_key_text_color: 0x000000 #標明按鍵文字
-    hilited_off_key_back_color: 0xd3d7da #標明按鍵關閉狀態背景
-    hilited_off_key_text_color: 0x000000 #標明按鍵關閉狀態文字
-    hilited_on_key_back_color: 0xd3d7da #標明按鍵打開狀態背景
-    hilited_on_key_text_color: 0x000000 #標明按鍵打開狀態文字
-    hilited_text_color: 0x23948e #標明編碼
-    key_back_color: 0xeceff1 #按鍵背景
-    #key_border_color: 0xeceff1 #按鍵邊框
-    key_symbol_color: 0x5f6b73 #按鍵符號
-    key_text_color: 0x37474f #按鍵文字
-    keyboard_back_color: 0xffffff #鍵盤背景
-    label_color: 0x000000 #標籤
-    off_key_back_color: 0xd3d7da #按鍵關閉狀態背景
-    off_key_text_color: 0x000000 #按鍵關閉狀態文字
-    on_key_back_color: 0x23948e #按鍵打開狀態背景
-    on_key_text_color: 0x37474f #按鍵打開狀態文字
-    preview_back_color: 0x55bfbfbf #按鍵提示背景
-    preview_text_color: 0x23948e #按鍵提示文字
-    shadow_color: 0x000000 #按鍵文字陰影
-    text_color: 0x5a676e #編碼
-    text_back_color: 0xcce4e7e9 #編碼區背景
+    name: 她说／SheSaid
+    author: 她说团队
+    # 现代简洁风格 — 柔和白底 + 玫瑰粉高亮
+    back_color: 0xF7F8FA #候选区背景（浅灰白）
+    border_color: 0xE8EAED #边框
+    candidate_separator_color: 0xE8EAED #候选分割线
+    candidate_text_color: 0x2D3436 #候选文字（深灰黑）
+    comment_text_color: 0x9CA3AF #提示文字（中灰）
+    hilited_back_color: 0xFFF0F3 #编码区背景（极淡粉）
+    hilited_candidate_back_color: 0xE91E63 #选中候选背景（玫瑰粉）
+    hilited_candidate_text_color: 0xFFFFFF #选中候选文字（白色）
+    hilited_comment_text_color: 0xF48FB1 #选中提示（淡粉）
+    hilited_key_back_color: 0xE91E63 #按下按键背景（玫瑰粉）
+    hilited_key_symbol_color: 0xFFFFFF #按下按键符号
+    hilited_key_text_color: 0xFFFFFF #按下按键文字
+    hilited_off_key_back_color: 0xE8EAED #关闭态按键背景
+    hilited_off_key_text_color: 0x6B7280 #关闭态按键文字
+    hilited_on_key_back_color: 0xE91E63 #开启态按键背景
+    hilited_on_key_text_color: 0xFFFFFF #开启态按键文字
+    hilited_text_color: 0xE91E63 #输入中的拼音编码（玫瑰粉）
+    key_back_color: 0xFFFFFF #普通按键背景（纯白）
+    key_symbol_color: 0x9CA3AF #按键符号（中灰）
+    key_text_color: 0x1F2937 #按键文字（深色）
+    keyboard_back_color: 0xF2F3F5 #键盘整体背景（浅灰）
+    label_color: 0x6B7280 #标签文字（中灰）
+    off_key_back_color: 0xF0F1F3 #关闭功能键背景
+    off_key_text_color: 0x6B7280 #关闭功能键文字
+    on_key_back_color: 0xE91E63 #开启功能键背景
+    on_key_text_color: 0xFFFFFF #开启功能键文字
+    preview_back_color: 0xEEEFF1 #按键预览背景
+    preview_text_color: 0xE91E63 #按键预览文字
+    shadow_color: 0x00000020 #阴影（半透明黑）
+    text_color: 0x374151 #编码区文字（深灰）
+    text_back_color: 0xF7F8FA #编码区背景
 
   aqua:
     name: 碧水／Aqua
