@@ -1,0 +1,10 @@
+# 她说输入法 — 默认方案补丁
+# 覆盖 prelude/default.yaml 的方案列表，确保首次打开就是拼音输入
+
+schema_list:
+  - schema: luna_pinyin
+  - schema: luna_pinyin_simp
+  - schema: luna_quanpin
+  - schema: stroke
+
+default_schema: luna_pinyin

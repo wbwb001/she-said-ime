@@ -1,10 +1,1 @@
-# 她说输入法 — 默认配置
-# 显式指定拼音方案为默认，确保首次打开就能打中文
-
-schema_list:
-  - schema: luna_pinyin
-  - schema: luna_pinyin_simp
-  - schema: luna_quanpin
-  - schema: stroke
-
-default_schema: luna_pinyin
+../../../../data/rime/prelude/default.yaml
