@@ -20,7 +20,7 @@ plugins {
 }
 
 android {
-    namespace = "com.shesaid.ime"
+    namespace = "com.osfans.trime"
     compileSdk = 35
     buildToolsVersion = "35.0.0"
 
