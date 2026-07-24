@@ -115,7 +115,13 @@ class DataChecksumsPlugin : Plugin<Project> {
                 if (change.changeType == ChangeType.REMOVED) {
                     map.remove(key)
                 } else {
-                    map[key] = sha256(change.file)
+                    // 防御：Gradle 增量输入可能回报一个磁盘上暂不存在的文件
+                    // （如 checkout 与增量快照时序差异），此时跳过而非崩溃
+                    if (change.file.exists()) {
+                        map[key] = sha256(change.file)
+                    } else {
+                        logger.log(LogLevel.WARN, "跳过缺失文件（不参与校验）: ${change.file}")
+                    }
                 }
             }
             // calculate dirs
