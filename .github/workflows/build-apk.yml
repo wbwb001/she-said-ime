@@ -17,6 +17,34 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Init submodules (with retry)
+        run: |
+          for i in 1 2 3; do
+            echo "=== submodule update attempt $i ==="
+            git submodule sync --recursive && \
+            git submodule update --init --recursive --force --depth 1 && {
+              echo "submodule update OK"
+              break
+            } || echo "attempt $i failed, retrying in 5s..."
+            sleep 5
+          done
+
+      - name: Verify Rime data submodules present
+        run: |
+          missing=0
+          for f in \
+            app/data/rime/prelude/default.yaml \
+            app/data/rime/luna-pinyin/luna_pinyin.schema.yaml \
+            app/data/rime/stroke/stroke.schema.yaml \
+            app/data/rime/essay/essay.txt ; do
+            if [ -f "$f" ]; then echo "OK  $f"; else echo "MISSING  $f"; missing=1; fi
+          done
+          if [ "$missing" -ne 0 ]; then
+            echo "::error::Rime 数据子模块未完整拉取，终止编译"
+            exit 1
+          fi
 
       - name: Setup Java
         uses: actions/setup-java@v5
