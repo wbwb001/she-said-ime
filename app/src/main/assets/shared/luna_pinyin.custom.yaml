@@ -35,4 +35,4 @@ patch:
 
   # === 挂上女本位检测插件(可选，想要辱女词标注/性别反转就留着) ===
   "engine/filters/+":
-    - lua_filter@feminist_filter
+    - lua_filter@feminist
